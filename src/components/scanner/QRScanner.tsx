@@ -1,49 +1,52 @@
-'use client'
+'use client';
 
-import { useEffect, useRef, useState } from 'react'
-import { BrowserMultiFormatReader } from '@zxing/library'
+import { useEffect, useRef, useState } from 'react';
+import { BrowserMultiFormatReader } from '@zxing/library';
 
 interface QRScannerProps {
-  onScan: (result: string) => void
-  onError?: (error: string) => void
+  onScan: (result: string) => void;
+  onError?: (error: string) => void;
 }
 
 export default function QRScanner({ onScan, onError }: QRScannerProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isScanning, setIsScanning] = useState(false)
-  const [reader, setReader] = useState<BrowserMultiFormatReader | null>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isScanning, setIsScanning] = useState(false);
+  const [reader, setReader] = useState<BrowserMultiFormatReader | null>(null);
 
   useEffect(() => {
-    const codeReader = new BrowserMultiFormatReader()
-    setReader(codeReader)
+    const codeReader = new BrowserMultiFormatReader();
+    setReader(codeReader);
 
     return () => {
       if (reader) {
-        reader.reset()
+        reader.reset();
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const startScanning = async () => {
-    if (!reader || !videoRef.current) return
+    if (!reader || !videoRef.current) return;
 
     try {
-      setIsScanning(true)
-      const result = await reader.decodeOnceFromVideoDevice(undefined, videoRef.current)
-      onScan(result.getText())
+      setIsScanning(true);
+      const result = await reader.decodeOnceFromVideoDevice(
+        undefined,
+        videoRef.current
+      );
+      onScan(result.getText());
     } catch (error) {
-      onError?.('Failed to scan QR code')
+      onError?.('Failed to scan QR code');
     } finally {
-      setIsScanning(false)
+      setIsScanning(false);
     }
-  }
+  };
 
   const stopScanning = () => {
     if (reader) {
-      reader.reset()
-      setIsScanning(false)
+      reader.reset();
+      setIsScanning(false);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col items-center space-y-4">
@@ -52,7 +55,7 @@ export default function QRScanner({ onScan, onError }: QRScannerProps) {
         className="w-full max-w-md border rounded-lg"
         style={{ aspectRatio: '1' }}
       />
-      
+
       <div className="flex space-x-4">
         <button
           onClick={startScanning}
@@ -61,7 +64,7 @@ export default function QRScanner({ onScan, onError }: QRScannerProps) {
         >
           {isScanning ? 'Scanning...' : 'Start Scan'}
         </button>
-        
+
         <button
           onClick={stopScanning}
           disabled={!isScanning}
@@ -71,5 +74,5 @@ export default function QRScanner({ onScan, onError }: QRScannerProps) {
         </button>
       </div>
     </div>
-  )
+  );
 }

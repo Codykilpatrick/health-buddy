@@ -1,4 +1,4 @@
-import AthleteForm from '@/components/forms/AthleteForm'
+import AthleteForm from '@/components/forms/AthleteForm';
 
 export default function CreatePage() {
   return (
@@ -7,5 +7,5 @@ export default function CreatePage() {
         <AthleteForm />
       </div>
     </div>
-  )
+  );
 }
