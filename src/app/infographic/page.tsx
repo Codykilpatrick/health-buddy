@@ -166,8 +166,8 @@ export default function QRMedicalInfographic() {
                     margin={{ bottom: 20 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
-                        
-                          <XAxis
+
+                    <XAxis
                       dataKey="minute"
                       tick={{ fill: '#ffffff', fontSize: 10 }}
                       label={{
@@ -227,6 +227,10 @@ export default function QRMedicalInfographic() {
                 immediate access to medical information could mean the
                 difference between proper treatment and a dangerous delay.
               </p>
+              <div className="text-xs text-gray-500 italic text-center mt-3 border-t border-gray-600 pt-2">
+                Source: Casa et al., &quot;National Athletic Trainers&apos;
+                Association Position Statement&quot; (2024)
+              </div>
             </div>
             {/* Financial Consequences */}
             <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
@@ -242,6 +246,10 @@ export default function QRMedicalInfographic() {
                 student injured during a pep rally when officials failed to
                 intervene promptly.
               </p>
+              <div className="text-xs text-gray-500 italic text-center mt-3 border-t border-gray-600 pt-2">
+                Sources: Levin & Perconti (2023) & National Federation of State
+                High School Associations (2016)
+              </div>
             </div>
             {/* Cost Comparison */}
             <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-4 border border-white/10">
@@ -345,12 +353,11 @@ export default function QRMedicalInfographic() {
           </div>
         </div>
       </section>
-
       {/* Compressed Solution Section */}
-      <section className="px-4 py-8 bg-gradient-to-r from-green-900/20 to-blue-900/20">
+      <section className="px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-            The QR Code Solution
+            The Solution
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
