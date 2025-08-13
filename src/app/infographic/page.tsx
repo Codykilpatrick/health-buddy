@@ -66,12 +66,8 @@ export default function QRMedicalInfographic() {
             </div>
             <div className="text-left">
               <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent pb-2">
-                Emergency Medical QR System
+                RapidMed
               </h1>
-              <p className="text-lg text-gray-300 mt-2">
-                Instant access to critical medical information when every second
-                counts
-              </p>
             </div>
           </div>
         </div>
@@ -80,23 +76,22 @@ export default function QRMedicalInfographic() {
       {/* Compressed Problem + Stats */}
       <section className="px-4 py-2">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-            Current Challenges in High School Sports
-          </h2>
           {/* Problem Summary */}
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 mb-8">
             <p className="text-lg text-gray-300 text-center leading-relaxed">
-              <strong className="text-white">Picture this:</strong> It&apos;s the
-              championship game, and your star player collapses on the field.
-              The coach frantically searches for medical information while
-              paramedics arrive.
+              <strong className="text-white">Picture this:</strong> It&apos;s
+              the championship game, and your star player collapses on the
+              field. The coach frantically searches for medical information
+              while paramedics arrive. Schools are not prepared for emergencies
+              like this that happen every day.
             </p>
           </div>
 
           {/* Emergency Preparedness Pie Chart */}
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 mb-8">
-        
-          <h4 className="text-xl font-bold text-center mb-4">School Emergency Preparedness Levels</h4>
+            <h4 className="text-xl font-bold text-center mb-4">
+              School Emergency Preparedness Levels
+            </h4>
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
@@ -106,74 +101,87 @@ export default function QRMedicalInfographic() {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({name, value}) => `${name}: ${value}%`}
+                      label={({ name, value }) => `${name}: ${value}%`}
                       outerRadius={80}
                       fill="#8884d8"
                       dataKey="value"
                     >
-                      {emergencyPreparednessData.map((entry) => (
+                      {emergencyPreparednessData.map(entry => (
                         <Cell key={`cell-${entry.name}`} fill={entry.color} />
                       ))}
                     </Pie>
-                    <Tooltip 
+                    <Tooltip
                       contentStyle={{
                         backgroundColor: 'rgba(0,0,0,0.8)',
                         border: '1px solid rgba(255,255,255,0.2)',
                         borderRadius: '8px',
                         fontSize: '12px',
                       }}
-                      formatter={(value) => [`${value}%`, 'Percentage']}
+                      formatter={value => [`${value}%`, 'Percentage']}
                     />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-              
-                              <div className="space-y-3">
- 
-                  <div className="space-y-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="font-semibold">Fully Prepared</span>
-                        <span className="text-green-400 font-bold">11%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-6">
-                        <div className="bg-green-500 h-6 rounded-full flex items-center justify-center" style={{width: '11%'}}>
-                          <span className="text-xs font-bold text-white">11%</span>
-                        </div>
-                      </div>
+
+              <div className="space-y-3">
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold">Fully Prepared</span>
+                      <span className="text-green-400 font-bold">11%</span>
                     </div>
-                    
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="font-semibold">Partially Prepared</span>
-                        <span className="text-orange-400 font-bold">61%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-6">
-                        <div className="bg-orange-500 h-6 rounded-full flex items-center justify-center" style={{width: '61%'}}>
-                          <span className="text-xs font-bold text-white">61%</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="font-semibold">Unprepared</span>
-                        <span className="text-red-400 font-bold">28%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-6">
-                        <div className="bg-red-500 h-6 rounded-full flex items-center justify-center" style={{width: '28%'}}>
-                          <span className="text-xs font-bold text-white">28%</span>
-                        </div>
+                    <div className="w-full bg-gray-700 rounded-full h-6">
+                      <div
+                        className="bg-green-500 h-6 rounded-full flex items-center justify-center"
+                        style={{ width: '11%' }}
+                      >
+                        <span className="text-xs font-bold text-white">
+                          11%
+                        </span>
                       </div>
                     </div>
                   </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold">Partially Prepared</span>
+                      <span className="text-orange-400 font-bold">61%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-6">
+                      <div
+                        className="bg-orange-500 h-6 rounded-full flex items-center justify-center"
+                        style={{ width: '61%' }}
+                      >
+                        <span className="text-xs font-bold text-white">
+                          61%
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold">Unprepared</span>
+                      <span className="text-red-400 font-bold">28%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-6">
+                      <div
+                        className="bg-red-500 h-6 rounded-full flex items-center justify-center"
+                        style={{ width: '28%' }}
+                      >
+                        <span className="text-xs font-bold text-white">
+                          28%
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="text-xs text-gray-500 italic text-center mt-4 border-t border-gray-600 pt-2">
-                  Oregon study on school emergency preparedness
+                  Source: Johnson, S.T., et al. &quot;Sports-Related Emergency
+                  Preparedness in Oregon High Schools&quot; (2017)
                 </div>
               </div>
             </div>
-            
-           
           </div>
 
           <div className="grid md:grid-cols-4 gap-4 mb-8">
@@ -372,7 +380,7 @@ export default function QRMedicalInfographic() {
                       ]}
                     />
                     <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
-                      {costComparisonData.map((entry) => (
+                      {costComparisonData.map(entry => (
                         <Cell key={`cell-${entry.item}`} fill={entry.color} />
                       ))}
                     </Bar>
@@ -640,7 +648,7 @@ export default function QRMedicalInfographic() {
               <div className="text-gray-400 text-sm">
                 <p>English 15 Assignment 4 - Infographic</p>
                 <p>
-                  Eastern View High School, Culpeper, Virginia • July 29, 2025
+                  Eastern View High School, Culpeper, Virginia • August 13, 2025
                 </p>
               </div>
             </div>
@@ -656,8 +664,9 @@ export default function QRMedicalInfographic() {
                   • Johns Hopkins Medicine. (2024). Sports Injury Statistics.
                 </p>
                 <p>
-                  • Johnson, S.T., et al. (2017). Sports-Related Emergency Preparedness in Oregon High Schools.{' '}
-                  <em>Sports Health</em>, 9(2), 181-184.
+                  • Johnson, S.T., et al. (2017). Sports-Related Emergency
+                  Preparedness in Oregon High Schools. <em>Sports Health</em>,
+                  9(2), 181-184.
                 </p>
                 <p>
                   • Joshi, P., & Sawant, S. (2024). QR Codes in Healthcare.{' '}
@@ -667,6 +676,7 @@ export default function QRMedicalInfographic() {
                   • Levin & Perconti. (2023). $4.4 Million Settlement Case
                   Study.
                 </p>
+                <p>• AdventHealth. Most Common High School Sports Injuries.</p>
               </div>
             </div>
           </div>

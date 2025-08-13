@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Health Buddy',
-  description: 'Health Buddy',
+  title: 'RapidMed',
+  description: 'RapidMed',
 };
 
 export default function RootLayout({

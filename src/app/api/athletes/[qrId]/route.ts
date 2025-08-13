@@ -3,11 +3,12 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { qrId: string } }
+  { params }: { params: Promise<{ qrId: string }> }
 ) {
   try {
+    const { qrId } = await params;
     const athlete = await prisma.athlete.findUnique({
-      where: { qrId: params.qrId },
+      where: { qrId },
     });
 
     if (!athlete) {

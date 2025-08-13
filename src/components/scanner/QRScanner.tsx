@@ -18,9 +18,7 @@ export default function QRScanner({ onScan, onError }: QRScannerProps) {
     setReader(codeReader);
 
     return () => {
-      if (reader) {
-        reader.reset();
-      }
+      codeReader.reset();
     };
   }, []);
 
@@ -34,7 +32,7 @@ export default function QRScanner({ onScan, onError }: QRScannerProps) {
         videoRef.current
       );
       onScan(result.getText());
-    } catch (error) {
+    } catch {
       onError?.('Failed to scan QR code');
     } finally {
       setIsScanning(false);

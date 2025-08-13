@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import { generateQRCode } from '@/lib/qr';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
 interface AthletePageProps {
   params: Promise<{ qrId: string }>;
@@ -89,9 +90,11 @@ export default async function AthletePage({ params }: AthletePageProps) {
 
               <div className="text-center">
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-600">
-                  <img
+                  <Image
                     src={qrCodeImage}
                     alt="QR Code"
+                    width={128}
+                    height={128}
                     className="w-32 h-32 mx-auto mb-3"
                   />
                   <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
