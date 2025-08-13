@@ -89,11 +89,7 @@ export default function QRMedicalInfographic() {
               <strong className="text-white">Picture this:</strong> It&apos;s the
               championship game, and your star player collapses on the field.
               The coach frantically searches for medical information while
-              paramedics arrive. Is the player diabetic? Allergic to
-              medications? Who should be called? Currently, this critical
-              information might be locked in a filing cabinet back at school, in
-              a parent&apos;s phone that&apos;s not answering, or written on a medical
-              bracelet too small to read quickly.
+              paramedics arrive.
             </p>
           </div>
 
@@ -362,6 +358,13 @@ export default function QRMedicalInfographic() {
                         border: '1px solid rgba(255,255,255,0.2)',
                         borderRadius: '8px',
                         fontSize: '12px',
+                        color: '#ffffff',
+                      }}
+                      labelStyle={{
+                        color: '#ffffff',
+                      }}
+                      itemStyle={{
+                        color: '#ffffff',
                       }}
                       formatter={value => [
                         `$${value.toLocaleString()}`,
