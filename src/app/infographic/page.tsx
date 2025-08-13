@@ -12,14 +12,11 @@ import {
   PieChart,
   Pie,
   Cell,
-  LineChart,
-  Line,
   Area,
   AreaChart,
 } from 'recharts';
 import {
   Shield,
-  Heart,
   Clock,
   Users,
   AlertTriangle,
@@ -37,14 +34,6 @@ import {
   HeartPulse,
 } from 'lucide-react';
 
-const injuryData = [
-  { category: 'Football', injuries: 118000 },
-  { category: 'Basketball', injuries: 119000 },
-  { category: 'Soccer', injuries: 88000 },
-  { category: 'Baseball', injuries: 57000 },
-  { category: 'Wrestling', injuries: 28000 },
-];
-
 const emergencyTimelineData = [
   { minute: 0, survival: 100 },
   { minute: 2, survival: 95 },
@@ -57,6 +46,12 @@ const costComparisonData = [
   { item: 'QR System', cost: 12, color: '#10b981' },
   { item: 'Pep Rally\nInjury', cost: 10500000, color: '#f59e0b' },
   { item: 'Brain Injury\nSettlement', cost: 4400000, color: '#ef4444' },
+];
+
+const emergencyPreparednessData = [
+  { name: 'Fully Prepared', value: 11, color: '#10b981' },
+  { name: 'Partially Prepared', value: 61, color: '#f59e0b' },
+  { name: 'Unprepared', value: 28, color: '#ef4444' },
 ];
 
 export default function QRMedicalInfographic() {
@@ -91,15 +86,75 @@ export default function QRMedicalInfographic() {
           {/* Problem Summary */}
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 mb-8">
             <p className="text-lg text-gray-300 text-center leading-relaxed">
-              <strong className="text-white">Picture this:</strong> It's the
+              <strong className="text-white">Picture this:</strong> It&apos;s the
               championship game, and your star player collapses on the field.
               The coach frantically searches for medical information while
               paramedics arrive. Is the player diabetic? Allergic to
               medications? Who should be called? Currently, this critical
               information might be locked in a filing cabinet back at school, in
-              a parent's phone that's not answering, or written on a medical
+              a parent&apos;s phone that&apos;s not answering, or written on a medical
               bracelet too small to read quickly.
             </p>
+          </div>
+
+          {/* Emergency Preparedness Pie Chart */}
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 mb-8">
+        
+          <h4 className="text-xl font-bold text-center mb-4">School Emergency Preparedness Levels</h4>
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={emergencyPreparednessData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={({name, value}) => `${name}: ${value}%`}
+                      outerRadius={80}
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
+                      {emergencyPreparednessData.map((entry) => (
+                        <Cell key={`cell-${entry.name}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip 
+                      contentStyle={{
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        borderRadius: '8px',
+                        fontSize: '12px',
+                      }}
+                      formatter={(value) => [`${value}%`, 'Percentage']}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              
+              <div className="space-y-3">
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-3 bg-green-500/20 rounded-xl border border-green-500/30">
+                    <span className="font-semibold">Fully Prepared</span>
+                    <span className="text-green-400 font-bold">11%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-orange-500/20 rounded-xl border border-orange-500/30">
+                    <span className="font-semibold">Partially Prepared</span>
+                    <span className="text-orange-400 font-bold">61%</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-red-500/20 rounded-xl border border-red-500/30">
+                    <span className="font-semibold">Unprepared</span>
+                    <span className="text-red-400 font-bold">28%</span>
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500 italic text-center mt-4 border-t border-gray-600 pt-2">
+                  Oregon study on school emergency preparedness
+                </div>
+              </div>
+            </div>
+            
+           
           </div>
 
           <div className="grid md:grid-cols-4 gap-4 mb-8">
@@ -291,8 +346,8 @@ export default function QRMedicalInfographic() {
                       ]}
                     />
                     <Bar dataKey="cost" radius={[4, 4, 0, 0]}>
-                      {costComparisonData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      {costComparisonData.map((entry) => (
+                        <Cell key={`cell-${entry.item}`} fill={entry.color} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -573,6 +628,10 @@ export default function QRMedicalInfographic() {
                 </p>
                 <p>
                   • Johns Hopkins Medicine. (2024). Sports Injury Statistics.
+                </p>
+                <p>
+                  • Johnson, S.T., et al. (2017). Sports-Related Emergency Preparedness in Oregon High Schools.{' '}
+                  <em>Sports Health</em>, 9(2), 181-184.
                 </p>
                 <p>
                   • Joshi, P., & Sawant, S. (2024). QR Codes in Healthcare.{' '}
