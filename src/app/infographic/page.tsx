@@ -132,22 +132,45 @@ export default function QRMedicalInfographic() {
                 </ResponsiveContainer>
               </div>
               
-              <div className="space-y-3">
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between p-3 bg-green-500/20 rounded-xl border border-green-500/30">
-                    <span className="font-semibold">Fully Prepared</span>
-                    <span className="text-green-400 font-bold">11%</span>
+                              <div className="space-y-3">
+ 
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="font-semibold">Fully Prepared</span>
+                        <span className="text-green-400 font-bold">11%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-6">
+                        <div className="bg-green-500 h-6 rounded-full flex items-center justify-center" style={{width: '11%'}}>
+                          <span className="text-xs font-bold text-white">11%</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="font-semibold">Partially Prepared</span>
+                        <span className="text-orange-400 font-bold">61%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-6">
+                        <div className="bg-orange-500 h-6 rounded-full flex items-center justify-center" style={{width: '61%'}}>
+                          <span className="text-xs font-bold text-white">61%</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="font-semibold">Unprepared</span>
+                        <span className="text-red-400 font-bold">28%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-6">
+                        <div className="bg-red-500 h-6 rounded-full flex items-center justify-center" style={{width: '28%'}}>
+                          <span className="text-xs font-bold text-white">28%</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-orange-500/20 rounded-xl border border-orange-500/30">
-                    <span className="font-semibold">Partially Prepared</span>
-                    <span className="text-orange-400 font-bold">61%</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-red-500/20 rounded-xl border border-red-500/30">
-                    <span className="font-semibold">Unprepared</span>
-                    <span className="text-red-400 font-bold">28%</span>
-                  </div>
-                </div>
                 <div className="text-xs text-gray-500 italic text-center mt-4 border-t border-gray-600 pt-2">
                   Oregon study on school emergency preparedness
                 </div>
